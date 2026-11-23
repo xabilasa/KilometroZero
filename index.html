@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KilómetroCero - Consumo Local y Sostenible</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>🌱 KilómetroCero</h1>
+            <p>Conecta con productores locales y reduce tu huella ecológica</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Formulario de Búsqueda (CP y Categoría) -->
+        <section class="search-section">
+            <form id="form-busqueda" class="search-form">
+                <div class="form-group">
+                    <label for="input-cp">Código Postal:</label>
+                    <input type="text" id="input-cp" placeholder="Ej: 28001" maxlength="5" required>
+                </div>
+                <div class="form-group">
+                    <label for="select-categoria">Categoría:</label>
+                    <select id="select-categoria">
+                        <option value="todos">Todas las categorías</option>
+                        <option value="Fruta">Fruta</option>
+                        <option value="Verdura">Verdura</option>
+                        <option value="Lácteos">Lácteos</option>
+                        <option value="Despensa">Despensa</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Buscar Productos</button>
+            </form>
+        </section>
+
+        <!-- Indicador de Carga (Spinner) -->
+        <div id="spinner" class="spinner-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Calculando distancias y buscando productores cercanos...</p>
+        </div>
+
+        <!-- Contenedor de Resultados (Listado / KPIs) -->
+        <section>
+            <h2>Productos Disponibles por Proximidad</h2>
+            <div id="contenedor-productos" class="products-grid">
+                <p class="placeholder-text">Introduce tu código postal y selecciona una categoría para consultar los productos locales.</p>
+            </div>
+        </section>
+
+        <!-- Contenedor de Errores -->
+        <div id="error-container" class="error-message" style="display: none;"></div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 KilómetroCero - Proyecto Sostenible DWEC</p>
+    </footer>
+</body>
+</html>
