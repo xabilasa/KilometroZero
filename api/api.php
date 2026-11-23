@@ -5,10 +5,10 @@ header('Access-Control-Allow-Origin: *');
 
 try {
     // Configura tus credenciales reales de MySQL de tu hosting
-    $host = 'db5021933190.hosting-data.io';
-    $db   = 'dbs16352330'; 
-    $user = 'dbu2980973';
-    $pass = 'K1l0m3tr0Z3r0$$';
+    $host = 'kkkk';
+    $db   = 'kkkk'; 
+    $user = 'kkkk';
+    $pass = 'kkkk';
     
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
