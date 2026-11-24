@@ -1,7 +1,7 @@
 'use strict'
 
 async function consultarProductos(){
-    const apiURL = "https://xabilasa.com/proyectos/kmzero/api/api.php";
+    const apiURL = "https://xabilasa.com/kmzero/api/api.php";
     try{
         const respuesta = await fetch (apiURL);
         if (!respuesta.ok) {
