@@ -68,4 +68,3 @@ function obtenerCapitalPorCP(codigoPostal){
     }
     return null;
 }
-
