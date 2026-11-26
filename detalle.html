@@ -20,11 +20,46 @@
         </div>
 
         <article id="detalle-producto" class="detail-card">
-            <!-- Contenido dinámico inyectado por JavaScript -->
-            <div class="spinner-container">
-                <div class="spinner"></div>
-                <p>Cargando información detallada...</p>
+            <div class="detail-header">
+                <div class="detail-title-group">
+                    <div id="detalle-icono" class="icono-producto" aria-hidden="true">🌿</div>
+                    <div class="detail-title">
+                        <h3 id="detalle-nombre">Nombre del producto</h3>
+                        <p id="detalle-productor" class="productor">Productor &middot; Zona</p>
+                    </div>
+                </div>
+                <span id="detalle-categoria" class="detail-category">Categoría</span>
             </div>
+
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span>Distancia estimada</span>
+                    <strong id="detalle-distancia">-- km</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Envío estimado por kg</span>
+                    <strong id="detalle-envio">-- €/kg</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Ahorro CO₂ base</span>
+                    <strong id="detalle-co2">-- kg CO₂</strong>
+                </div>
+            </div>
+
+            <section class="bloque-territorio">
+                <h4>Origen, temporada y singularidad del territorio</h4>
+                <p id="detalle-do"><strong>Sello / Origen:</strong> Información de calidad o procedencia.</p>
+                <p id="detalle-temporada"><strong>Temporada:</strong> Época habitual de disponibilidad.</p>
+                <p id="detalle-curiosidad"><strong>Rasgo del entorno:</strong> Particularidad geográfica, climática o de cultivo.</p>
+            </section>
+
+            <section class="bloque-territorio">
+                <h4>Productor y canal directo</h4>
+                <div id="detalle-logo-productor" class="productor">Imagen corporativa del productor (próximamente en fichas asociadas).</div>
+                <div id="detalle-tienda-cta" style="margin-top: 12px;">
+                    <!-- Botón de acceso a la tienda online del productor cuando esté disponible -->
+                </div>
+            </section>
         </article>
     </main>
 

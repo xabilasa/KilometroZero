@@ -15,6 +15,31 @@ async function consultarProductos(){
     }
 }
 
+//Obtener coordenadas de un CP utilizando API cartociudad.es
+async function obtenerCoordenadasCP(codigoPostal){
+    const apiURL = "https://www.cartociudad.es/geocoder/api/geocoder/find?q=" + codigoPostal;
+
+    try {
+        const respuesta = await fetch(apiURL);
+
+        if (!respuesta.ok){
+            throw new Error("Error HTTP: " + respuesta.status);
+        }
+
+        const datos = await respuesta.json();
+        const localizaCP = (lat, lon) => ({lat, lon}); // Creo un objeto para pasar coordenadas
+        if (datos.lat == null || datos.lng == null){
+            console.error("datos de ubicación inválidos");
+        } else {
+            return localizaCP(datos.lat, datos.lng)
+        }
+
+    } catch (error) {
+        console.error("Error al consultar CartoCiudad:", error);
+        throw error;
+    }
+}
+
 //Función para calcular una distancia entre dos puntos considerando currvatura terraquea
 function calcularDistancia(lat1, lon1, lat2, lon2){
     const rTierra =  6371;
@@ -67,4 +92,100 @@ function obtenerCapitalPorCP(codigoPostal){
         }
     }
     return null;
+}
+
+// Obtener provincia por zona del productor
+function obtenerProvinciaPorZona(zona) {
+    const partes = zona.split(/[\/,]/);
+
+    for (let i = 0; i < partes.length; i++) {
+        const nombre = partes[i].trim();
+
+        for (let j = 0; j < Provincias.length; j++) {
+            if (Provincias[j].nombre === nombre) {
+                return Provincias[j];
+            }
+        }
+    }
+
+    return null;
+}
+
+//Filtrar productos por categoría
+function filtrarPorCategoria (productos, categoria){
+    if (categoria === "todos"){
+        return productos;
+    }
+    let productosFiltrados = [];
+    for (let i = 0; i < productos.length; i++){
+        if(productos[i].categoria === categoria){
+            productosFiltrados.push(productos[i]);
+        }
+    }
+    return productosFiltrados;
+}
+
+// Ordenar por distancia para utilizar con productos similares y comparar
+function ordenarPorDistancia(productos) {
+    return productos.sort(function(a, b) {
+        return a.distancia_calculada_km - b.distancia_calculada_km;
+    });
+}
+
+//Obtener nombre de productos (primeras palabra) para comparaciones
+function obtenerNombreBase(nombre) {
+    const palabras = nombre.split(" ");
+    return palabras[0];
+}
+
+// Función de ordenación de productos para la tabla comparativa
+function ordenarPorNombreYDistancia(productos) {
+    return productos.sort(function(a, b) {
+        const nombreA = obtenerNombreBase(a.nombre).toLowerCase();
+        const nombreB = obtenerNombreBase(b.nombre).toLowerCase();
+
+        if (nombreA < nombreB) {
+            return -1;
+        }
+
+        if (nombreA > nombreB) {
+            return 1;
+        }
+
+        return a.distancia_calculada_km - b.distancia_calculada_km;
+    });
+}
+
+// Función de agrupación para comparativa. Agrupa productos que se repiten de distintos productores.
+function obtenerProductosComparables(productos) {
+    const grupos = {};
+    for (let i = 0; i < productos.length; i++) {
+        let nombreBase = obtenerNombreBase(productos[i].nombre);
+        if (!grupos[nombreBase]) {
+            grupos[nombreBase] = [];
+        }
+        grupos[nombreBase].push(productos[i]);
+    }
+    const grupoComparable = [];
+    for (let nombre in grupos) {
+        if (grupos[nombre].length > 1) {
+            grupoComparable.push({
+                nombreBase: nombre,
+                productos: grupos[nombre]
+            });
+        }
+    }
+    return grupoComparable;
+}
+
+// Determina el color de la grafica para misma provincia (menor kilometraje)
+function esMismaProvincia(zona, codigoPostal) {
+    const provinciaConsumidor = obtenerCapitalPorCP(codigoPostal);
+    const provinciaProductor = obtenerProvinciaPorZona(zona);
+
+    if (!provinciaConsumidor || !provinciaProductor) {
+        return false;
+    }
+
+    return provinciaConsumidor.cp === provinciaProductor.cp;
 }

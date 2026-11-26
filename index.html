@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KilómetroCero - Consumo Local y Sostenible</title>
+    <title>KilometroZero</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <h1>🌱 KilómetroCero</h1>
-            <p>Conecta con productores locales y reduce tu huella ecológica</p>
+        <div class="container header-flex">
+            <div>
+                <h1>🌱 KilometroZero</h1>
+                <p>Circuito corto y comercio justo</p>
+            </div>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="index.html" class="nav-link">Catálogo</a>
+                <a href="manifiesto.html" class="nav-link">Manifiesto</a>
+                <a href="comparativa.html" class="nav-link">Comparador</a>
+            </nav>
         </div>
     </header>
-
     <main class="container">
         <!-- Formulario de Búsqueda (CP y Categoría) -->
         <section class="search-section">
@@ -26,9 +32,10 @@
                     <label for="select-categoria">Categoría:</label>
                     <select id="select-categoria">
                         <option value="todos">Todas las categorías</option>
-                        <option value="Fruta">Fruta</option>
-                        <option value="Verdura">Verdura</option>
-                        <option value="Lácteos">Lácteos</option>
+                        <option value="Frutas">Frutas</option>
+                        <option value="Verduras">Verduras</option>
+                        <option value="Pescados">Pescados</option>
+                        <option value="Carnes">Carnes</option>
                         <option value="Despensa">Despensa</option>
                     </select>
                 </div>
@@ -55,14 +62,18 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 KilómetroCero - Proyecto Sostenible DWEC</p>
+        <div class="container">
+            <p>&copy; 2026 KilometroZero <a href="../productor">Soy productor y quiero aparecer aquí</a></p>
+        </div>
     </footer>
-    <!-- jQuery -->
+
     <script src="js/jquery-4.1.0.js"></script>
     <script src="js/data/provincias.js"></script>
     <script src="js/model/models.js"></script>
     <script src="js/view/view.js"></script>
+    <script src="js/data/storage.js"></script>
     <script src="js/controller/controller.js"></script>
     <script src="js/main.js"></script>
+    
 </body>
 </html>

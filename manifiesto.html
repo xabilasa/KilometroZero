@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la Página - KilómetroZero</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-flex">
+            <div>
+                <h1>🌱 KilómetroCero</h1>
+                <p>Manifiesto</p>
+            </div>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="index.html" class="nav-link">Catálogo</a>
+                <a href="manifiesto.html" class="nav-link">Manifiesto</a>
+                <a href="comparativa.html" class="nav-link">Comparador</a>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="container manifiesto-main">
+        <blockquote class="cita-apertura">
+            «No vendemos productos ni competimos en escaparates: reunimos información verificable sobre cercanía, oficio y territorio para que el consumidor decida con criterio propio.»
+        </blockquote>
+
+        <!-- 1. Qué es y por qué existe -->
+        <section class="seccion-manifiesto">
+            <h2>1. Qué es KilómetroCero y por qué existe</h2>
+            <p>
+                <strong>KilómetroCero</strong> es una herramienta de consulta e información orientada al comercio local, el circuito corto y la producción extensiva. Su objetivo es dar visibilidad a productores, cofradías, caseríos, cooperativas y obradores artesanos, aportando contexto territorial y logístico que habitualmente queda oculto en los canales de distribución masiva.
+            </p>
+            <p>
+                Partimos de una premisa sencilla: <strong>a precios equiparables, el contacto directo con quien produce permite una mayor calidad para quien consume y un reparto más justo del valor para quien trabaja la tierra, el mar o el obrador.</strong>
+            </p>
+
+            <h3>Nuestros principios operativos</h3>
+            <ul class="lista-manifiesto">
+                <li><strong>Comercio justo también en la cadena digital:</strong> Nuestro modelo no busca especular ni encarecer el producto con grandes márgenes de intermediación. El sostenimiento del proyecto se apoya en las aportaciones de los productores que deciden aparecer y dar visibilidad a su trabajo, destinadas a cubrir gastos operativos, promocionar y publicitar la plataforma a medida que crecen las contribuciones, y remunerar de forma justa a quienes realizan la labor comercial de contactar y sumar productores.</li>
+                <li><strong>Comercio local y extensivo frente al intensivo:</strong> Priorizamos modelos de producción ligados al territorio y a los ritmos naturales frente a los sistemas intensivos estandarizados.</li>
+                <li><strong>Salto de cadenas largas:</strong> Al acercar el origen al destino, se reducen eslabones innecesarios de distribución masiva y reenvasado, facilitando el contacto directo con el productor y sus propios canales de venta.</li>
+            </ul>
+        </section>
+
+        <!-- 2. Qué aporta cada tipo de producción -->
+        <section class="seccion-manifiesto">
+            <h2>2. Qué aporta cada tipo de producción</h2>
+            <p>
+                No todos los alimentos tienen las mismas necesidades logísticas ni de conservación. Por eso agrupamos y explicamos su valor según su naturaleza:
+            </p>
+            <ul class="lista-manifiesto">
+                <li><strong>Frutas y verduras (maduración en origen):</strong> Comprar cerca de la zona productiva favorece que frutas y hortalizas alcancen su punto de maduración en la planta o en el árbol, en lugar de viajar verdes y madurar en cámaras o almacenes de tránsito, conservando mejor textura, aroma y propiedades.</li>
+                <li><strong>Pescados, mariscos y carnes (frescura en perecederos):</strong> En productos frescos y perecederos —especialmente cuando no van sometidos a procesos industriales de conservación prolongada o envasado complejo—, la cercanía y la agilidad del trayecto son determinantes para preservar su frescura real.</li>
+                <li><strong>Despensa y productos artesanos (oficio sin urgencia de caducidad):</strong> Conservas, aceites, mieles, legumbres, fermentados u otros elaborados de despensa no dependen de la inmediatez de un fresco, pero sí reflejan el saber hacer artesano de distintas comarcas y la justicia de remunerar un trabajo bien hecho.</li>
+            </ul>
+        </section>
+
+        <!-- 3. Cómo calculamos las distancias -->
+        <section class="seccion-manifiesto">
+            <h2>3. Cómo calculamos las distancias (y qué significan)</h2>
+            <p>
+                Las distancias mostradas en la aplicación son <strong>estimaciones logísticas</strong>, no mediciones exactas puerta a puerta ni rutas de navegación por satélite.
+            </p>
+
+            <h3>El recorrido logístico de referencia</h3>
+            <p>
+                La mayoría de los envíos de productores locales se apoyan en empresas de transporte habituales cuyas <strong>centrales y nodos logísticos se sitúan en las inmediaciones de las capitales de provincia</strong> por criterios de eficiencia, consolidación de cargas y economía del transporte.
+            </p>
+            <p>Por ello, modelamos el trayecto siguiendo esta secuencia de referencia:</p>
+
+            <div class="ruta-destacada">
+                Origen del producto &rarr; Capital de provincia de origen &rarr; Capital de provincia de destino &rarr; Código postal del usuario
+            </div>
+
+            <p>
+                Sobre esa referencia geográfica aplicamos correcciones de trazado vial para aproximar el recorrido por carretera frente a la simple línea recta, manteniendo un criterio homogéneo en todo el territorio (incluidas provincias insulares y ciudades autónomas).
+            </p>
+
+            <figure class="diagrama-manifiesto" aria-label="Esquema de estimación logística por capitales de provincia">
+                <svg viewBox="0 0 760 150" width="100%" height="auto" role="img">
+                    <rect x="0" y="0" width="760" height="150" rx="10" fill="#fbf8f3" stroke="#dfd3c0" />
+
+                    <rect x="20" y="35" width="150" height="76" rx="8" fill="#e7f0e9" stroke="#2d5a3c" stroke-width="1.5" />
+                    <text x="95" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1d3d28">1. Origen</text>
+                    <text x="95" y="86" text-anchor="middle" font-size="11" fill="#5c5348">Productor / Zona</text>
+
+                    <line x1="170" y1="73" x2="205" y2="73" stroke="#8c5a2b" stroke-width="2" />
+                    <polygon points="205,68 215,73 205,78" fill="#8c5a2b" />
+
+                    <rect x="215" y="35" width="160" height="76" rx="8" fill="#f6f2ea" stroke="#8c5a2b" stroke-width="1.5" />
+                    <text x="295" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#633d19">2. Cap. Origen</text>
+                    <text x="295" y="86" text-anchor="middle" font-size="11" fill="#5c5348">Nodo de transporte</text>
+
+                    <line x1="375" y1="73" x2="410" y2="73" stroke="#8c5a2b" stroke-width="2" />
+                    <polygon points="410,68 420,73 410,78" fill="#8c5a2b" />
+
+                    <rect x="420" y="35" width="160" height="76" rx="8" fill="#f6f2ea" stroke="#8c5a2b" stroke-width="1.5" />
+                    <text x="500" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#633d19">3. Cap. Destino</text>
+                    <text x="500" y="86" text-anchor="middle" font-size="11" fill="#5c5348">Hub provincial</text>
+
+                    <line x1="580" y1="73" x2="615" y2="73" stroke="#8c5a2b" stroke-width="2" />
+                    <polygon points="615,68 625,73 615,78" fill="#8c5a2b" />
+
+                    <rect x="625" y="35" width="115" height="76" rx="8" fill="#e7f0e9" stroke="#2d5a3c" stroke-width="1.5" />
+                    <text x="682" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1d3d28">4. CP Usuario</text>
+                    <text x="682" y="86" text-anchor="middle" font-size="11" fill="#5c5348">Entrega final</text>
+
+                    <text x="380" y="135" text-anchor="middle" font-size="11" fill="#5c5348">
+                        Estimación basada en la ubicación habitual de centrales logísticas junto a capitales de provincia
+                    </text>
+                </svg>
+                <figcaption>Esquema orientativo del recorrido logístico empleado para estimar kilómetros.</figcaption>
+            </figure>
+        </section>
+
+        <!-- 4. Huella de carbono y comparativas -->
+        <section class="seccion-manifiesto">
+            <h2>4. Huella de carbono y comparativas: estado actual y evolución futura</h2>
+            <p>Queremos ser explícitos sobre el alcance real de los datos que mostramos hoy:</p>
+
+            <ul class="lista-manifiesto">
+                <li><strong>Estado actual — Sin cálculo de emisiones de CO₂:</strong> En esta etapa <strong>no calculamos ni estimamos emisiones de CO₂</strong>, ya que aún no contamos con mecanismos propios ni con fuentes de datos suficientemente fiables y contrastadas para ofrecer una cifra rigurosa de emisiones en cada trayecto o proceso productivo.</li>
+                <li><strong>Comparativa actual — Entre productores del mismo producto:</strong> Hoy comparamos el <strong>kilometraje estimado entre distintos productores que ofrecen un mismo producto</strong>. Esa diferencia de kilómetros sirve como referencia orientativa para intuir la distinta exigencia de transporte entre un productor más cercano y otro más lejano, sin atribuir valores exactos de CO₂ que todavía no medimos.</li>
+                <li><strong>Evolución prevista — Comparativa con grandes superficies y logística industrial:</strong> A medida que incorporemos fuentes de datos fiables y modelos de cálculo contrastados, ampliaremos el análisis para estimar diferencias de impacto frente a las grandes superficies y los grandes distribuidores (con sus rutas de reparto, almacenes centrales y cadenas logísticas de gran escala). Cuando esa medición esté disponible, se integrará sobre esta misma base sin alterar los principios del proyecto.</li>
+            </ul>
+
+            <figure class="diagrama-manifiesto" aria-label="Comparativa actual por kilómetros entre productores y evolución futura">
+                <svg viewBox="0 0 760 155" width="100%" height="auto" role="img">
+                    <rect x="0" y="0" width="760" height="155" rx="10" fill="#fbf8f3" stroke="#dfd3c0" />
+
+                    <rect x="24" y="22" width="344" height="110" rx="8" fill="#e7f0e9" stroke="#2d5a3c" stroke-width="1.5" />
+                    <text x="42" y="46" font-size="13" font-weight="700" fill="#1d3d28">Fase actual: Kilómetros entre productores</text>
+                    <text x="42" y="68" font-size="11.5" fill="#2b2620">• Compara distancia para un mismo producto</text>
+                    <text x="42" y="88" font-size="11.5" fill="#2b2620">• Orienta sobre el impacto relativo de transporte</text>
+                    <text x="42" y="108" font-size="11.5" fill="#5c5348">• Sin cálculo de CO₂ por falta de datos fiables aún</text>
+
+                    <rect x="392" y="22" width="344" height="110" rx="8" fill="#f6f2ea" stroke="#8c5a2b" stroke-width="1.5" stroke-dasharray="5,4" />
+                    <text x="410" y="46" font-size="13" font-weight="700" fill="#633d19">Fase futura: Grandes superficies y huella</text>
+                    <text x="410" y="68" font-size="11.5" fill="#2b2620">• Incorporación de fuentes y modelos contrastados</text>
+                    <text x="410" y="88" font-size="11.5" fill="#2b2620">• Comparativa frente a distribución a gran escala</text>
+                    <text x="410" y="108" font-size="11.5" fill="#5c5348">• Integración progresiva sobre esta misma base</text>
+                </svg>
+                <figcaption>Transición planificada sin modificar los valores fundacionales del proyecto.</figcaption>
+            </figure>
+        </section>
+
+        <div class="back-nav">
+            <a href="index.html" class="btn-secondary">&larr; Volver al catálogo de productos</a>
+        </div>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 KilómetroZero <a href="../productor">Soy productor y quiero aparecer aquí</a></p>
+        </div>
+    </footer>
+    <script src="js/jquery-4.1.0.js"></script>
+    <script src="js/data/provincias.js"></script>
+    <script src="js/model/models.js"></script>
+    <script src="js/view/view.js"></script>
+    <script src="js/controller/controller.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

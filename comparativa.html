@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la Página - KilómetroZero</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-flex">
+            <div>
+                <h1>🌱 KilómetroCero</h1>
+                <p>Comparación de impacto por kilometraje</p>
+            </div>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="index.html" class="nav-link">Catálogo</a>
+                <a href="manifiesto.html" class="nav-link">Manifiesto</a>
+                <a href="comparativa.html" class="nav-link">Comparador</a>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="container">
+
+        <!-- Formulario de Búsqueda (CP y Categoría) -->
+        <section class="search-section">
+            <form id="form-busqueda" class="search-form">
+                <div class="form-group">
+                    <label for="input-cp">Código Postal:</label>
+                    <input type="text" id="input-cp"
+                        placeholder="Ej: 28001" maxlength="5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="select-categoria">Categoría:</label>
+                    <select id="select-categoria">
+                        <option value="todos">Todas las categorías</option>
+                        <option value="Frutas">Frutas</option>
+                        <option value="Verduras">Verduras</option>
+                        <option value="Pescados">Pescados</option>
+                        <option value="Carnes">Carnes</option>
+                        <option value="Despensa">Despensa</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Buscar Productos
+                </button>
+            </form>
+        </section>
+
+        <!-- Indicador de Carga -->
+        <div id="spinner" class="spinner-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Calculando distancias y buscando productores...</p>
+        </div>
+
+        <!-- Selector de productos -->
+        <section class="product-selector-section">
+            <h2>Comparar productos similares</h2>
+
+            <p class="section-description">
+                Selecciona un producto para comparar las distancias
+                a las que se encuentran sus diferentes productores.
+            </p>
+
+            <div class="form-group">
+                <label for="select-producto">Producto:</label>
+                <select id="select-producto" disabled>
+                    <option value="">Realiza primero una búsqueda</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Gráfica comparativa -->
+        <section class="chart-section">
+            <h2>Distancia de los productores</h2>
+
+            <div id="contenedor-grafica" class="chart-container">
+                <p class="placeholder-text">
+                    Selecciona un producto para visualizar la distancia
+                    de sus productores.
+                </p>
+            </div>
+
+            <!-- Leyenda -->
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <span class="legend-color same-province"></span>
+                    <span>Misma provincia</span>
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-color nearby"></span>
+                    <span>Otra provincia, menos de 125 km</span>
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-color other-province"></span>
+                    <span>Otra provincia</span>
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-color farthest"></span>
+                    <span>Mayor distancia</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla comparativa desplegable -->
+        <section class="comparison-section">
+            <details class="comparison-accordion">
+                <summary>Consultar tabla completa de productos</summary>
+
+                <div id="contenedor-tabla">
+                    <p class="placeholder-text">
+                        Realiza una búsqueda para consultar los productos.
+                    </p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Contenedor de Errores -->
+        <div id="error-container" class="error-message"
+            style="display: none;"></div>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 KilómetroZero <a href="../productor">Soy productor y quiero aparecer aquí</a></p>
+        </div>
+    </footer>
+    <script src="js/jquery-4.1.0.js"></script>
+    <script src="js/data/provincias.js"></script>
+    <script src="js/model/models.js"></script>
+    <script src="js/view/view.js"></script>
+    <script src="js/data/storage.js"></script>
+    <script src="js/controller/controller.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
