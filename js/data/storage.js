@@ -21,3 +21,16 @@ function inicializarFormulario() {
     $("#input-cp").val(busqueda.codigoPostal);
     $("#select-categoria").val(busqueda.categoria);
 }
+
+// Guardar y recuperar producto de sessionStorage para mstrarlo en el modal
+function guardarProductoSeleccionado(producto) {
+    sessionStorage.setItem("productoSeleccionado", JSON.stringify(producto));
+}
+
+function recuperarProductoSeleccionado() {
+    const producto = sessionStorage.getItem("productoSeleccionado");
+    if (producto) {
+        return JSON.parse(producto);
+    }
+    return null;
+}

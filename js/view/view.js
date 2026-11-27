@@ -39,7 +39,8 @@ function mostrarProductos(productos) {
                     <p class="productor"><strong>Zona:</strong> ${producto.zona}</p>
                 </div>
             </article>`;
-
+        // Asociar los datos completos del producto a la tarjeta
+        $(tarjeta).data("producto", producto);
         contenedor.append(tarjeta);
     }
 }
@@ -137,4 +138,24 @@ function mostrarTablaComparativa(productos) {
         </table>
     `;
     contenedor.append(tabla);
+}
+
+// Funcion para construir ficha de producto en el modal
+function mostrarDetalleProducto(producto) {
+    const $contenedor = $("#detalle-producto");
+    $contenedor.empty();
+    const $titulo = $("<h1></h1>").text(producto.nombre);
+    const $producto = $("<section></section>").addClass("detalle-seccion");
+    $producto.append("<h2>Información del producto</h2>");
+    $producto.append(
+        $("<p></p>").text("Categoría: " + (producto.categoria || "No disponible"))
+    );
+    const $productor = $("<section></section>").addClass("detalle-seccion");
+    $productor.append("<h2>Información del productor</h2>");
+    $productor.append(
+        $("<p></p>").text("Productor: " + (producto.productor || "No disponible")),
+        $("<p></p>").text("Zona: " + (producto.zona || "No disponible")),
+        $("<p></p>").text("Código postal: " + (producto.codigo_postal || "No disponible"))
+    );
+    $contenedor.append($titulo, $producto, $productor);
 }

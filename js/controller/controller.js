@@ -102,6 +102,39 @@ async function iniciarAplicacion(){
             codigoPostal
         );
     }
+
+    // Abrir ficha de producto (en modal detalle.html)
+    $(document).on("click", ".tarjeta-producto", function() {
+        const producto = $(this).data("producto");
+        if (!producto) {
+            return;
+        }
+        guardarProductoSeleccionado(producto);
+        $("#iframe-detalle").attr("src", "detalle.html");
+        $("#modal-detalle").fadeIn(200);
+    });
+
+    // Cerrar modal
+    $("#cerrar-modal").on("click", function() {
+        $("#modal-detalle").fadeOut(200);
+        $("#iframe-detalle").attr("src", "");
+    });
+
+    // Cerrar al pulsar fuera de la ficha
+    $("#modal-detalle").on("click", function(event) {
+        if (event.target === this) {
+            $("#modal-detalle").fadeOut(200);
+            $("#iframe-detalle").attr("src", "");
+        }
+    });
+
+    // Mostrar ficha cuando detalle.html se carga
+    if ($("#detalle-producto").length) {
+        const producto = recuperarProductoSeleccionado();
+        if (producto) {
+            mostrarDetalleProducto(producto);
+        }
+    }
 });
 
     });
