@@ -91,7 +91,6 @@ async function iniciarAplicacion(){
                 $select.append(
                     '<option value="">No hay productos repetidos para comparar</option>'
                 ).prop("disabled", true);
-
                 return;
             }
             $select.append('<option value="">Selecciona un producto...</option>');
