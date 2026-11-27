@@ -6,65 +6,19 @@
     <title>Detalle del Producto - KilómetroCero</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <h1>🌱 KilómetroCero</h1>
-            <p>Información detallada del productor y su impacto ambiental</p>
-        </div>
-    </header>
+    <body>
 
-    <main class="container detail-main">
-        <div class="back-nav">
-            <a href="index.html" class="btn-secondary">&larr; Volver al listado</a>
-        </div>
+        <main id="detalle-producto" class="detalle-container">
+            <p class="placeholder-text">Cargando información del producto...</p>
+        </main>
 
-        <article id="detalle-producto" class="detail-card">
-            <div class="detail-header">
-                <div class="detail-title-group">
-                    <div id="detalle-icono" class="icono-producto" aria-hidden="true">🌿</div>
-                    <div class="detail-title">
-                        <h3 id="detalle-nombre">Nombre del producto</h3>
-                        <p id="detalle-productor" class="productor">Productor &middot; Zona</p>
-                    </div>
-                </div>
-                <span id="detalle-categoria" class="detail-category">Categoría</span>
-            </div>
+        <script src="js/jquery-4.1.0.js"></script>
+        <script src="js/data/provincias.js"></script>
+        <script src="js/model/models.js"></script>
+        <script src="js/view/view.js"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/controller/controller.js"></script>
+        <script src="js/main.js"></script>
 
-            <div class="detail-grid">
-                <div class="detail-item">
-                    <span>Distancia estimada</span>
-                    <strong id="detalle-distancia">-- km</strong>
-                </div>
-                <div class="detail-item">
-                    <span>Envío estimado por kg</span>
-                    <strong id="detalle-envio">-- €/kg</strong>
-                </div>
-                <div class="detail-item">
-                    <span>Ahorro CO₂ base</span>
-                    <strong id="detalle-co2">-- kg CO₂</strong>
-                </div>
-            </div>
-
-            <section class="bloque-territorio">
-                <h4>Origen, temporada y singularidad del territorio</h4>
-                <p id="detalle-do"><strong>Sello / Origen:</strong> Información de calidad o procedencia.</p>
-                <p id="detalle-temporada"><strong>Temporada:</strong> Época habitual de disponibilidad.</p>
-                <p id="detalle-curiosidad"><strong>Rasgo del entorno:</strong> Particularidad geográfica, climática o de cultivo.</p>
-            </section>
-
-            <section class="bloque-territorio">
-                <h4>Productor y canal directo</h4>
-                <div id="detalle-logo-productor" class="productor">Imagen corporativa del productor (próximamente en fichas asociadas).</div>
-                <div id="detalle-tienda-cta" style="margin-top: 12px;">
-                    <!-- Botón de acceso a la tienda online del productor cuando esté disponible -->
-                </div>
-            </section>
-        </article>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2026 KilómetroCero - Proyecto Sostenible DWEC</p>
-    </footer>
-</body>
+    </body>
 </html>
