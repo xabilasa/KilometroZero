@@ -604,6 +604,72 @@ h2 {
     background-color: #bfc06d;
 }
 
+/* MODAL DE DETALLE DE PRODUCTO */
+.modal-detalle {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    padding: 2rem 1rem;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    height: 85vh;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-contenido iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.cerrar-modal {
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Ficha de producto */
+.detalle-container {
+    max-width: 850px;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.detalle-seccion {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f7f9f7;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .modal-detalle {
+        padding: 0;
+    }
+
+    .modal-contenido {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
 /* ACORDEÓN DE LA TABLA COMPARATIVA */
 .comparison-accordion {
     background-color: #fff;
