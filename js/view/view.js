@@ -11,16 +11,16 @@ function obtenerRutaIcono(nombreProducto) {
     return clave ? `images/icons/${clave}.svg` : 'images/icons/default.svg';
 }
 
+//Mostar productos en el modal 
 function mostrarProductos(productos) {
     const contenedor = $("#contenedor-productos");
     contenedor.empty();
-
     for (let i = 0; i < productos.length; i++) {
         const producto = productos[i];
         const idIcono = `icono-producto-${producto.id ?? i}`;
         const rutaIcono = obtenerRutaIcono(producto.nombre);
 
-        const tarjeta = `
+        const tarjeta = $(`
             <article class="tarjeta-producto">
                 <div class="ficha-top-bar">
                     <span class="detail-category">${producto.categoria}</span>
@@ -38,9 +38,9 @@ function mostrarProductos(productos) {
                     <p class="productor"><strong>Productor:</strong> ${producto.productor}</p>
                     <p class="productor"><strong>Zona:</strong> ${producto.zona}</p>
                 </div>
-            </article>`;
-        // Asociar los datos completos del producto a la tarjeta
-        $(tarjeta).data("producto", producto);
+            </article>
+        `);
+        tarjeta.data("producto", producto);
         contenedor.append(tarjeta);
     }
 }

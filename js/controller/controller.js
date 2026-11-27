@@ -1,6 +1,34 @@
 'use strict'
 
 let catalogoProductos = [];
+
+// Abrir ficha de producto (en modal detalle.html)
+$(document).on("click", ".tarjeta-producto", function() {
+    const producto = $(this).data("producto");
+   if (!producto) {
+        console.error("No se han encontrado los datos del producto");
+        return;
+    }
+    guardarProductoSeleccionado(producto);
+    $("#iframe-detalle").attr("src", "detalle.html");
+    $("#modal-detalle").fadeIn(200);
+});
+
+// Cerrar al pulsar la X
+$(document).on("click", "#cerrar-modal", function(event) {
+    event.stopPropagation();
+    $("#modal-detalle").fadeOut(200);
+    $("#iframe-detalle").attr("src", "");
+});
+
+// Cerrar al pulsar fuera de la ficha
+$("#modal-detalle").on("click", function(event) {
+    if (event.target === this) {
+        $("#modal-detalle").fadeOut(200);
+        $("#iframe-detalle").attr("src", "");
+    }
+});
+
 async function iniciarAplicacion(){
     try{
         catalogoProductos = await consultarProductos();
@@ -56,7 +84,6 @@ async function iniciarAplicacion(){
         // Agrupar productos con más de un productor para comparativa
         const productosComparables = obtenerProductosComparables(productosOrdenados);
 
-
         function cargarSelectorProductos() {
             const $select = $("#select-producto");
             $select.empty();
@@ -92,50 +119,17 @@ async function iniciarAplicacion(){
             return;
         }
 
-    const grupoSeleccionado = productosComparables.find(
-        grupo => grupo.nombreBase === nombreSeleccionado
-    );
-
-    if (grupoSeleccionado) {
-        mostrarGraficaComparativa(
-            grupoSeleccionado.productos,
-            codigoPostal
+        const grupoSeleccionado = productosComparables.find(
+            grupo => grupo.nombreBase === nombreSeleccionado
         );
-    }
 
-    // Abrir ficha de producto (en modal detalle.html)
-    $(document).on("click", ".tarjeta-producto", function() {
-        const producto = $(this).data("producto");
-        if (!producto) {
-            return;
-        }
-        guardarProductoSeleccionado(producto);
-        $("#iframe-detalle").attr("src", "detalle.html");
-        $("#modal-detalle").fadeIn(200);
-    });
-
-    // Cerrar modal
-    $("#cerrar-modal").on("click", function() {
-        $("#modal-detalle").fadeOut(200);
-        $("#iframe-detalle").attr("src", "");
-    });
-
-    // Cerrar al pulsar fuera de la ficha
-    $("#modal-detalle").on("click", function(event) {
-        if (event.target === this) {
-            $("#modal-detalle").fadeOut(200);
-            $("#iframe-detalle").attr("src", "");
+        if (grupoSeleccionado) {
+            mostrarGraficaComparativa(
+                grupoSeleccionado.productos,
+                codigoPostal
+            );
         }
     });
-
-    // Mostrar ficha cuando detalle.html se carga
-    if ($("#detalle-producto").length) {
-        const producto = recuperarProductoSeleccionado();
-        if (producto) {
-            mostrarDetalleProducto(producto);
-        }
-    }
-});
 
     });
     // Recuperar los criterios guardados en localStorage y rellenar formulario
